@@ -1,0 +1,17 @@
+ { "id": null, "pits": [
+   { "id": null, "index": 1, "owner": "FIRST_PLAYER", "stonesCount": 6, "homePit": false },
+   { "id": null, "index": 2, "owner": "FIRST_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 3, "owner": "FIRST_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 4, "owner": "FIRST_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 5, "owner": "FIRST_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 6, "owner": "FIRST_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 7, "owner": "FIRST_PLAYER", "stonesCount": 0, "homePit": true }, 
+   { "id": null, "index": 8, "owner": "SECOND_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 9, "owner": "SECOND_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 10, "owner": "SECOND_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 11, "owner": "SECOND_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 12, "owner": "SECOND_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 13, "owner": "SECOND_PLAYER", "stonesCount": 6, "homePit": false }, 
+   { "id": null, "index": 14, "owner": "SECOND_PLAYER", "stonesCount": 0, "homePit": true }], 
+   "winner": null, "turn": "FIRST_PLAYER" }
+
