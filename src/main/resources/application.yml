@@ -1,0 +1,6 @@
+spring:  h2:    console:      enabled: true
+      path: /sql
+  datasource:    url: jdbc:h2:mem:~/h2/testdb
+    username: sa    password:    driverClassName: org.h2.Driver  jpa:    hibernate:      ddl-auto : update  show-sql: true
+
+

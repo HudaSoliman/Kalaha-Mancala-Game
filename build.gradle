@@ -1,0 +1,53 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.bol'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'org.flywaydb:flyway-core'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  // api documentation
+  compile group: 'io.springfox', name: 'springfox-swagger2'
+  compile group: 'io.springfox', name: 'springfox-swagger-ui'
+  // https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
+  implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+  // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+  // https://mvnrepository.com/artifact/javax.validation/validation-api
+  implementation group: 'javax.validation', name: 'validation-api'
+  runtimeOnly('org.glassfish.jaxb:jaxb-runtime:2.3.+')
+  
+implementation group: 'io.undertow', name: 'undertow-core', version: '2.2.7.Final'
+  
+
+
+  
+  
+}
+
+test {
+	useJUnitPlatform()
+}
