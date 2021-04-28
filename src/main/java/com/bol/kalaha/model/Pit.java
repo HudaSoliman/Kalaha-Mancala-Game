@@ -96,13 +96,12 @@ public class Pit {
 	}
 
 	public boolean isDistributable(final Player turn) {
-		return (!turn.equals(Player.SECOND_PLAYER) || (this.getIndex() != Player.FIRST_PLAYER.getHomeIndex()))
-				&& (!turn.equals(Player.FIRST_PLAYER) || (this.getIndex() != Player.SECOND_PLAYER.getHomeIndex()));
+		return turn.equals(this.owner) ||  !isHomePit();
 	}
 
 	public boolean isHomePit() {
-		return (this.getIndex() == Player.SECOND_PLAYER.getHomeIndex())
-				|| (this.getIndex() == Player.FIRST_PLAYER.getHomeIndex());
+		return (this.getIndex() == Player.FIRST_PLAYER.getHomeIndex())
+				|| (this.getIndex() == Player.SECOND_PLAYER.getHomeIndex());
 	}
 
 	@Override

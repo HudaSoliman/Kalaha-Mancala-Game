@@ -33,12 +33,12 @@ public class Board {
 	}
 	
 	public Pit getOppositePit(int pitIndex) {
-		return getPit(Board.PIT_END_INDEX - pitIndex);
+		return getPit(Board.PIT_END_INDEX - (pitIndex  % Board.PIT_END_INDEX));
 	}
 
 	public int getStonesCount( Player player,  boolean includeHome) {
 		return this.getPits().stream()
-				.filter(pit -> (pit.getOwner().equals(player) && (includeHome || !pit.isHomePit())))
+				.filter(pit -> pit.getId()!=null && (pit.getOwner().equals(player) && (includeHome || !pit.isHomePit())))
 				.mapToInt(Pit::getStonesCount).sum();
 	}
 }

@@ -1,8 +1,8 @@
 package com.bol.kalaha.model;
 
 public enum Player {
-    SECOND_PLAYER(Board.PIT_END_INDEX / 2),
-    FIRST_PLAYER(Board.PIT_END_INDEX);
+    FIRST_PLAYER(Board.PIT_END_INDEX),
+    SECOND_PLAYER(Board.PIT_END_INDEX / 2);
 
     private int homeIndex;
 
@@ -16,8 +16,8 @@ public enum Player {
     
     static public Player getPlayer(long index) {
     	if(index >= Board.PIT_START_INDEX && index <=Board.PIT_END_INDEX/2 ) {
-    		return FIRST_PLAYER;
+    		return SECOND_PLAYER;
     	}
-    	return SECOND_PLAYER;
+    	return FIRST_PLAYER;
     }
 }
