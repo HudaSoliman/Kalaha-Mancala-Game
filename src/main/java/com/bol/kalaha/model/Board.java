@@ -24,21 +24,21 @@ public class Board {
 		}
 	}
 
-	public Pit getPit( int index) {
+	public Pit getPit(int index) {
 		return this.pits.get((index - 1) % Board.PIT_END_INDEX);
 	}
 
 	public List<Pit> getPits() {
 		return this.pits;
 	}
-	
+
 	public Pit getOppositePit(int pitIndex) {
-		return getPit(Board.PIT_END_INDEX - (pitIndex  % Board.PIT_END_INDEX));
+		return getPit(Board.PIT_END_INDEX - (pitIndex % Board.PIT_END_INDEX));
 	}
 
-	public int getStonesCount( Player player,  boolean includeHome) {
-		return this.getPits().stream()
-				.filter(pit -> pit.getId()!=null && (pit.getOwner().equals(player) && (includeHome || !pit.isHomePit())))
+	public int getStonesCount(Player player, boolean includeHome) {
+		return this.getPits().stream().filter(
+				pit -> pit.getId() != null && (pit.getOwner().equals(player) && (includeHome || !pit.isHomePit())))
 				.mapToInt(Pit::getStonesCount).sum();
 	}
 }

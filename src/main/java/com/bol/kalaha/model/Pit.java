@@ -96,7 +96,7 @@ public class Pit {
 	}
 
 	public boolean isDistributable(final Player turn) {
-		return turn.equals(this.owner) ||  !isHomePit();
+		return turn.equals(this.owner) || !isHomePit();
 	}
 
 	public boolean isHomePit() {

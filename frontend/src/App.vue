@@ -2,12 +2,9 @@
 <div id="app" class="container-fluid">
     <div class="site-info">
         <img id="logo" src="./assets/logo.png" alt="Kalaha Game">
-
-        <!-- <h1>Kalaha Game</h1> -->
     </div>
     <nav>
         <board />
-        
     </nav>
     <br />
     <router-view />
@@ -20,17 +17,12 @@ import Board from "./components/Board";
 export default {
     name: "app",
     data() {
-        return {
-
-        };
+        return {};
     },
     components: {
         Board
     },
-    methods: {
-        
-    },
-
+    methods: {},
 };
 </script>
 
@@ -44,10 +36,7 @@ export default {
     width: 20%;
 }
 
-
 .container-fluid {
     text-align: center;
 }
-
-
 </style>
