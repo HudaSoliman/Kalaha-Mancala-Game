@@ -24,7 +24,6 @@ import com.bol.kalaha.service.GameService;
 
 import io.swagger.annotations.ApiOperation;
 
-//@CrossOrigin(origins = "http://localhost:4200")
 @EnableAutoConfiguration
 @RestController
 @ExposesResourceFor(Game.class)
