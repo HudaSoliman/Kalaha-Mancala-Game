@@ -13,10 +13,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.NoArgsConstructor;
-
 @Entity
-@NoArgsConstructor
 @Table(name = "pit")
 public class Pit {
 
