@@ -17,7 +17,7 @@ public class CorsConfig {
 	public FilterRegistrationBean<CorsFilter> corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		CorsConfiguration config = new CorsConfiguration();
-		config.addAllowedOrigin(Constants.FRONTEND_ORIGIN);
+		config.addAllowedOrigin("*");
 		config.addAllowedHeader("*");
 		config.addAllowedMethod("GET");
 		config.addAllowedMethod("PUT");
@@ -35,7 +35,7 @@ public class CorsConfig {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins(Constants.FRONTEND_ORIGIN)
+				registry.addMapping("/**").allowedOrigins("*")
 						.allowedMethods("GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH").maxAge(3600);
 			}
 		};

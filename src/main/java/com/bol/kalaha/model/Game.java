@@ -5,8 +5,10 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -18,7 +20,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "game")
 public class Game {
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name = "game_seq", sequenceName = "seq_game", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "game_seq")
 	private Long id;
 
 	@OneToMany(mappedBy = "game", cascade = { CascadeType.ALL })
@@ -35,6 +38,11 @@ public class Game {
 		for (Pit p : this.pits) {
 			p.setGame(this);
 		}
+	}
+
+	public Game(Long id) {
+		this();
+		setId(id);
 	}
 
 	public Player getWinner() {

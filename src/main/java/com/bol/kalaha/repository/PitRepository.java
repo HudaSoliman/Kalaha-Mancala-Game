@@ -7,12 +7,12 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.bol.kalaha.model.Pit;
 
-public interface PitRepository extends CrudRepository<Pit, Integer> {
+public interface PitRepository extends CrudRepository<Pit, Long> {
 
 	List<Pit> findAll();
 
-	List<Pit> findAllByGameId(int id);
+	List<Pit> findAllByGameId(Long id);
 
-	Optional<Pit> findById(long id);
+	Optional<Pit> findById(Long id);
 
 }

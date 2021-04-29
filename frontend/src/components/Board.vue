@@ -71,12 +71,13 @@ export default {
                 this.invalidMove();
                 return;
             }
-            http.patch(`/api/games/${this.game.id}/pits/${pit.id}`)
+            http.put(`/api/games/${this.game.id}/pits/${pit.id}`)
                 .then(response => {
                     this.game = response.data;
                 })
                 .catch(e => {
                     console.log(e);
+                    alert(e.response.data)
                 });
 
         },
@@ -90,13 +91,14 @@ export default {
         },
         createGame() {
             let g = {};
-            http.post("/api/")
+            http.post("/api/games/")
                 .then(response => {
                     this.game = response.data;
                     console.log(response);
                 })
                 .catch(e => {
                     console.log(e);
+                    alert(e.response.data)
                 });
         }
         /* eslint-enable no-console */

@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
@@ -35,14 +36,12 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
   implementation group: 'javax.validation', name: 'validation-api'
   runtimeOnly('org.glassfish.jaxb:jaxb-runtime:2.3.+')
-  
-implementation group: 'io.undertow', name: 'undertow-core', version: '2.2.7.Final'
-  
-
-
-  
+  implementation group: 'io.undertow', name: 'undertow-core', version: '2.2.7.Final'
   
 }
+  
+  
+
 
 test {
 	useJUnitPlatform()

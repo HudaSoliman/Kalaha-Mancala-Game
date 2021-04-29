@@ -9,16 +9,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bol.kalaha.model.Game;
 import com.bol.kalaha.repository.GameRepository;
-import com.bol.kalaha.repository.PitRepository;
 import com.bol.kalaha.rest.resources.GameModel;
 import com.bol.kalaha.service.GameService;
 
@@ -27,11 +27,8 @@ import io.swagger.annotations.ApiOperation;
 @EnableAutoConfiguration
 @RestController
 @ExposesResourceFor(Game.class)
-@RequestMapping("/api")
+@RequestMapping("/api/games")
 public class GameController {
-
-	@Autowired
-	PitRepository pitRepository;
 
 	@Autowired
 	GameRepository gameRepository;
@@ -39,9 +36,20 @@ public class GameController {
 	@Autowired
 	GameService gameService;
 
+	@CrossOrigin
+	@ApiOperation(value = "Get game", nickname = "getGame")
+	@GetMapping("/{id}")
+	public ResponseEntity<GameModel> getGame(@PathVariable(name = "id") Long id) {
+
+		final Game game = gameService.findGame(id);
+		final GameModel gameResponse = new GameModel(game);
+
+		return ResponseEntity.status(HttpStatus.OK).body(gameResponse);
+	}
+
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiOperation(value = "create game", nickname = "createGame")
-	@PostMapping(name = "/games", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<GameModel> createGame() {
 
 		final Game game = gameService.createGame();
@@ -51,15 +59,15 @@ public class GameController {
 	}
 
 	@CrossOrigin
-	@PatchMapping("/games/{gameId}/pits/{pitId}")
-	public ResponseEntity<GameModel> playGame(@PathVariable final long gameId, @PathVariable final long pitId) {
-		
-		Game game = gameService.play(gameId, pitId);
-		game.setPits(game.getPits().stream().filter(pit -> pit.getId() != null).collect(Collectors.toList()));
-		gameRepository.save(game);
-		
-		GameModel gameResponse = new GameModel(game);
+	@PutMapping("/{gameId}/pits/{pitId}")
+	public ResponseEntity<GameModel> playGame(@PathVariable final Long gameId, @PathVariable final Long pitId) {
 
+		Game game = gameService.play(gameId, pitId);
+
+		game.setPits(game.getPits().stream().filter(pit -> pit.getId() != null).collect(Collectors.toList()));
+		Game g = gameRepository.save(game);
+
+		GameModel gameResponse = new GameModel(g);
 		return ResponseEntity.status(HttpStatus.OK).body(gameResponse);
 	}
 

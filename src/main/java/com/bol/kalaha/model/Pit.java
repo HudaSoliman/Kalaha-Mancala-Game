@@ -3,9 +3,11 @@ package com.bol.kalaha.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -19,7 +21,8 @@ import lombok.NoArgsConstructor;
 public class Pit {
 
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name = "pit_seq", sequenceName = "seq_pit", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pit_seq")
 	private Long id;
 
 	private int index;
@@ -40,15 +43,21 @@ public class Pit {
 	private Game game;
 
 	public Pit() {
+		this.isHome = this.isHomePit();
+		this.owner = Player.getPlayer(index);
+		if (!this.isHomePit()) {
+			this.setStonesCount(6);
+		}
 	}
 
 	public Pit(int index) {
 		this.index = index;
 		this.isHome = this.isHomePit();
+		this.owner = Player.getPlayer(index);
 		if (!this.isHomePit()) {
 			this.setStonesCount(6);
 		}
-		this.owner = Player.getPlayer(index);
+
 	}
 
 	public Long getId() {

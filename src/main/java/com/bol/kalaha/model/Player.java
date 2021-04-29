@@ -14,7 +14,7 @@ public enum Player {
         return this.homeIndex;
     }
     
-    static public Player getPlayer(long index) {
+    static public Player getPlayer(int index) {
     	if(index >= Board.PIT_START_INDEX && index <=Board.PIT_END_INDEX/2 ) {
     		return SECOND_PLAYER;
     	}

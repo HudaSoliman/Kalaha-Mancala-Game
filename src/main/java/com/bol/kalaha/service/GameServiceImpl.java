@@ -6,12 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bol.kalaha.model.Board;
 import com.bol.kalaha.model.Game;
 import com.bol.kalaha.model.Pit;
 import com.bol.kalaha.model.Player;
 import com.bol.kalaha.repository.GameRepository;
-import com.bol.kalaha.repository.PitRepository;
 import com.bol.kalaha.rest.exception.GameNotFoundException;
 import com.bol.kalaha.rest.exception.IllegalMoveException;
 import com.bol.kalaha.rest.exception.IllegalMoveType;
@@ -23,7 +21,7 @@ public class GameServiceImpl implements GameService {
 	private GameRepository gameRepository;
 
 	@Autowired
-	private PitRepository pitRepository;
+	private PitService pitService;
 
 	public GameServiceImpl(GameRepository repository) {
 	}
@@ -36,17 +34,11 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
-	public Game play(long gameId, long pitId) {
-		Optional<Game> g = gameRepository.findById(gameId);
-		if (!g.isPresent()) {
-			throw new GameNotFoundException(gameId);
-		}
-		Game game = g.get();
-		Optional<Pit> pit = pitRepository.findById(pitId);
-		if (pit.isPresent()) {
-			moveStones(game, pit.get().getIndex());
-			checkGameOver(game);
-		}
+	public Game play(Long gameId, Long pitId) {
+		Game game = this.findGame(gameId);
+		Pit pit = pitService.findPit(pitId);
+		moveStones(game, pit.getIndex());
+		checkGameOver(game);
 		return game;
 	}
 
@@ -103,13 +95,11 @@ public class GameServiceImpl implements GameService {
 		if (!lastPit.isHomePit() && lastPit.getOwner().equals(game.getTurn()) && (lastPit.getStonesCount() == 1)) {
 			Pit oppositePit = game.getBoard().getOppositePit(lastIndex);
 
-//			if (oppositePit.getStonesCount() > 0) {
-				Pit homePit = game.getBoard().getPit(lastPit.getOwner().getHomeIndex());
-				homePit.setStonesCount(
-						(homePit.getStonesCount() + oppositePit.getStonesCount()) + lastPit.getStonesCount());
-				oppositePit.setStonesCount(0);
-				lastPit.setStonesCount(0);
-//			}
+			Pit homePit = game.getBoard().getPit(lastPit.getOwner().getHomeIndex());
+			homePit.setStonesCount(
+					(homePit.getStonesCount() + oppositePit.getStonesCount()) + lastPit.getStonesCount());
+			oppositePit.setStonesCount(0);
+			lastPit.setStonesCount(0);
 		}
 	}
 
@@ -152,5 +142,14 @@ public class GameServiceImpl implements GameService {
 				game.setTurn(Player.SECOND_PLAYER);
 			}
 		}
+	}
+
+	@Override
+	public Game findGame(Long gameId) {
+		Optional<Game> g = gameRepository.findById(gameId);
+		if (g.isPresent()) {
+			return g.get();
+		}
+		throw new GameNotFoundException(gameId);
 	}
 }

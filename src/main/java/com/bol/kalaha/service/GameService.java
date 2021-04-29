@@ -6,6 +6,8 @@ public interface GameService {
 
     Game createGame();
 
-    Game play(long gameId, long pitId);
+    Game play(Long gameId, Long pitId);
+
+	Game findGame(Long gameId);
 
 }
