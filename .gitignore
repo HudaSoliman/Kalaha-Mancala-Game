@@ -1,3 +1,6 @@
 /.project
 /bin/
 /.classpath
+./build/
+./settings/
+./node_modules/

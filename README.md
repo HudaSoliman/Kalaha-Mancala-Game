@@ -1,4 +1,4 @@
-# Huda Soliman KALAHA (Mancala) Game
+#KALAHA (Mancala) Game
 
 ### Built With
 * Spring boot 2.4
@@ -23,10 +23,10 @@ the backend listens on port 8080
 
 ### Installing
 
-After you have installed all necessary software, you can clone the project locally and move into the subfolder `huda-soliman/frontend/`. In the subfolder execute `npm install` to get all dependencies which are defined in the `package.json`-file.
+After you have installed all necessary software, you can clone the project locally and move into the subfolder huda-soliman/frontend/`. In the subfolder execute `npm install` to get all dependencies which are defined in the `package.json`-file.
 
 ```
-cd ./huda-soliman/frontend/
+cd huda-soliman/frontend/
 npm install
 ```
 
