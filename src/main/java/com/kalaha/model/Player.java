@@ -1,4 +1,4 @@
-package com.bol.kalaha.model;
+package com.kalaha.model;
 
 public enum Player {
     FIRST_PLAYER(Board.PIT_END_INDEX),

@@ -1,4 +1,4 @@
-package com.bol.kalaha.rest.exception;
+package com.kalaha.rest.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

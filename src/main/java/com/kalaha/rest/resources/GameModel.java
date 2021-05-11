@@ -1,13 +1,13 @@
-package com.bol.kalaha.rest.resources;
+package com.kalaha.rest.resources;
 
 import java.util.List;
 
 import org.springframework.hateoas.RepresentationModel;
 
-import com.bol.kalaha.model.Game;
-import com.bol.kalaha.model.Pit;
-import com.bol.kalaha.model.Player;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.kalaha.model.Game;
+import com.kalaha.model.Pit;
+import com.kalaha.model.Player;
 
 public class GameModel extends RepresentationModel {
 

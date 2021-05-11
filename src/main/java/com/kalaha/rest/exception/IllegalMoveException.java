@@ -1,4 +1,4 @@
-package com.bol.kalaha.rest.exception;
+package com.kalaha.rest.exception;
 
 public class IllegalMoveException extends RuntimeException {
 

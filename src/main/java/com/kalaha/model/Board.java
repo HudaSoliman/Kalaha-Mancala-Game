@@ -1,4 +1,4 @@
-package com.bol.kalaha.model;
+package com.kalaha.model;
 
 import java.util.ArrayList;
 import java.util.List;

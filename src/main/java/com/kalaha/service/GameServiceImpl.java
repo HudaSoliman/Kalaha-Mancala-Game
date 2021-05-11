@@ -1,4 +1,4 @@
-package com.bol.kalaha.service;
+package com.kalaha.service;
 
 import java.util.Optional;
 
@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bol.kalaha.model.Game;
-import com.bol.kalaha.model.Pit;
-import com.bol.kalaha.model.Player;
-import com.bol.kalaha.repository.GameRepository;
-import com.bol.kalaha.rest.exception.GameNotFoundException;
-import com.bol.kalaha.rest.exception.IllegalMoveException;
-import com.bol.kalaha.rest.exception.IllegalMoveType;
+import com.kalaha.model.Game;
+import com.kalaha.model.Pit;
+import com.kalaha.model.Player;
+import com.kalaha.repository.GameRepository;
+import com.kalaha.rest.exception.GameNotFoundException;
+import com.kalaha.rest.exception.IllegalMoveException;
+import com.kalaha.rest.exception.IllegalMoveType;
 
 @Service
 public class GameServiceImpl implements GameService {

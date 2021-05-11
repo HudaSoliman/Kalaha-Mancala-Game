@@ -1,6 +1,6 @@
-package com.bol.kalaha.service;
+package com.kalaha.service;
 
-import com.bol.kalaha.model.Game;
+import com.kalaha.model.Game;
 
 public interface GameService {
 

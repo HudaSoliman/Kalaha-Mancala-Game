@@ -1,4 +1,4 @@
-package com.bol.kalaha.rest.exception;
+package com.kalaha.rest.exception;
 
 public enum IllegalMoveType {
 	FIRST_PLAYER_TURN("It's First Player's turn"),

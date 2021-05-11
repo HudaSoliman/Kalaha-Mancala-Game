@@ -1,11 +1,11 @@
-package com.bol.kalaha.repository;
+package com.kalaha.repository;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.bol.kalaha.model.Pit;
+import com.kalaha.model.Pit;
 
 public interface PitRepository extends CrudRepository<Pit, Long> {
 

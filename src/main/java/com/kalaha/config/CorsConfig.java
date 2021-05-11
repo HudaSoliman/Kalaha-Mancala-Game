@@ -1,4 +1,4 @@
-package com.bol.kalaha.config;
+package com.kalaha.config;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

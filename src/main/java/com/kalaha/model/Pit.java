@@ -1,4 +1,4 @@
-package com.bol.kalaha.model;
+package com.kalaha.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

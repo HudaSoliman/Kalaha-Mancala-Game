@@ -1,4 +1,4 @@
-package com.bol.kalaha;
+package com.kalaha;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

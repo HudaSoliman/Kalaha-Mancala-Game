@@ -1,4 +1,4 @@
-package com.bol.kalaha.rest.controllers;
+package com.kalaha.rest.controllers;
 
 import java.util.stream.Collectors;
 
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bol.kalaha.model.Game;
-import com.bol.kalaha.repository.GameRepository;
-import com.bol.kalaha.rest.resources.GameModel;
-import com.bol.kalaha.service.GameService;
+import com.kalaha.model.Game;
+import com.kalaha.repository.GameRepository;
+import com.kalaha.rest.resources.GameModel;
+import com.kalaha.service.GameService;
 
 import io.swagger.annotations.ApiOperation;
 

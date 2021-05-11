@@ -1,4 +1,4 @@
-package com.bol.kalaha.config;
+package com.kalaha.config;
 
 public class Constants {
 

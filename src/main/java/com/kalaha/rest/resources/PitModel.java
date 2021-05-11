@@ -1,10 +1,10 @@
-package com.bol.kalaha.rest.resources;
+package com.kalaha.rest.resources;
 
 import org.springframework.hateoas.RepresentationModel;
 
-import com.bol.kalaha.model.Pit;
-import com.bol.kalaha.model.Player;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.kalaha.model.Pit;
+import com.kalaha.model.Player;
 
 public class PitModel extends RepresentationModel {
 

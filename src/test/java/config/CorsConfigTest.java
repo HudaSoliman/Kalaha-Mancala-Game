@@ -17,8 +17,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.bol.kalaha.KalahaApplication;
-import com.bol.kalaha.config.Constants;
+import com.kalaha.KalahaApplication;
+import com.kalaha.config.Constants;
 
 import io.undertow.util.Headers;
 

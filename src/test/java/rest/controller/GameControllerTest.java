@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.util.Assert;
 
-import com.bol.kalaha.KalahaApplication;
+import com.kalaha.KalahaApplication;
 
 @ActiveProfiles("test")
 @AutoConfigureMockMvc

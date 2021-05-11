@@ -1,4 +1,4 @@
-package com.bol.kalaha.service;
+package com.kalaha.service;
 
 import java.util.Optional;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bol.kalaha.model.Pit;
-import com.bol.kalaha.repository.PitRepository;
-import com.bol.kalaha.rest.exception.PitNotFoundException;
+import com.kalaha.model.Pit;
+import com.kalaha.repository.PitRepository;
+import com.kalaha.rest.exception.PitNotFoundException;
 
 @Service
 public class PitServiceImpl implements PitService {

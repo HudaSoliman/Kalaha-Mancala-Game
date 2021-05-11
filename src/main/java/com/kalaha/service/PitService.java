@@ -1,6 +1,6 @@
-package com.bol.kalaha.service;
+package com.kalaha.service;
 
-import com.bol.kalaha.model.Pit;
+import com.kalaha.model.Pit;
 
 public interface PitService {
 
